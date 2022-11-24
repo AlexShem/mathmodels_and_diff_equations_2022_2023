@@ -1,7 +1,7 @@
 %% Main parameters
 D = .1;
 L = 1;
-T = 5;
+T = 1.5;
 
 Nx = 50;
 nu = .5; % nu = D * tau / h^2
@@ -14,8 +14,9 @@ tau = nu * h^2 / D;
 Nt = ceil(T/tau) + 1;
 
 u_0 = exp(-(x - .5).^2 ./ .05);
-% figure(1)
-% plot(x, u_0)
+
+figure(1)
+plot(x, u_0)
 
 %% Transition matrices
 U_now = (1-2*nu)*eye(Nx) + ...

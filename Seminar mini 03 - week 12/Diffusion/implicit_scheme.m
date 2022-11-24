@@ -1,7 +1,7 @@
 %% Main parameters
 D = .1;
 L = 1;
-T = 1;
+T = 1.5;
 
 Nx = 50;
 nu = .011; % nu = D * tau / h^2
