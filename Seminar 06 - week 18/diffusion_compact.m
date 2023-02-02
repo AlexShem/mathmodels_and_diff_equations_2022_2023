@@ -35,6 +35,8 @@ U_next = eye(Nx) + ...
 %% Periodic border condition
 U_next(1, end) = a;
 U_next(end, 1) = a;
+U_now(1, end) = c;
+U_now(end, 1) = c;
 
 %% Integration
 U = zeros(Nt, Nx);
