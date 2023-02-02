@@ -1,3 +1,4 @@
+%% Initialization
 clear
 clc
 syms a b c % Coeffs of the left side (approximating u)
@@ -8,22 +9,18 @@ syms x t u(t, x) f(t, x)
 coefs_u_app = [a b c];
 coefs_f_app = [p q];
 
-
-
+%% Test functions
 x_test = x.^[0 2 4];
 t_test = t.^[0 1 2];
 test_funs = transpose(x_test.' * t_test);
 test_funs = test_funs(:);
 test_funs = test_funs(1:end-2); % Keep 7 test functions
 
-
-
-% Differential equation: Rod
+%% Differential equation
 du_fun = @(U) diff(U, t) - D * diff(diff(U, x), x);
 
+%% System of equations
 coef_eqs = sym('Eqs', [length(test_funs), 1]);
-% coef_eqs = zeros(11, 1);
-
 for k = 1 : numel(test_funs)
     u(t, x) = test_funs(k);
     f(t, x) = du_fun(u(t, x));
@@ -44,6 +41,7 @@ end
 
 comp_eqs = solve(coef_eqs, [coefs_u_app, coefs_f_app]);
 
+%% Solution analysis
 cfs = struct2array(comp_eqs).';
 cfs = simplify(subs(cfs, D*tau, nu*h^2));
 
