@@ -17,7 +17,7 @@ test_funs = test_funs(:);
 test_funs = test_funs(1:end-2); % Keep 7 test functions
 
 %% Differential equation
-du_fun = @(U) diff(U, t) - D * diff(diff(U, x), x);
+du_fun = @(U) diff(U, t) - D * diff(U, x, 2);
 
 %% System of equations
 coef_eqs = sym('Eqs', [length(test_funs), 1]);
@@ -44,6 +44,6 @@ comp_eqs = solve(coef_eqs, [coefs_u_app, coefs_f_app]);
 %% Solution analysis
 cfs = struct2array(comp_eqs).';
 cfs = simplify(subs(cfs, D*tau, nu*h^2));
-
+% nu * h^2 = D * tau
 alpha = 4*(6*nu + 5);
 cfs_norm = simplify(cfs * alpha);
