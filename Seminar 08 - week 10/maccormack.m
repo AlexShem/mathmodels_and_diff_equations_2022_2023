@@ -1,0 +1,6 @@
+function u_new = maccormack(u, f, tau, h)
+    pred = u ...
+        - tau/h * (f(circshift(u, -1)) - f(u));
+    u_new = .5*(u + pred ...
+        - tau/h*(f(pred) - f(circshift(pred, 1))));
+end
