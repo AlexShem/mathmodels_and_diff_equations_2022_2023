@@ -4,7 +4,7 @@ clear
 L = 2*pi;
 T = 1.5;
 tau = 0.0061359;
-Nx = 100;
+Nx = 101;
 
 comp_correction = true;
 
@@ -18,7 +18,7 @@ t = 0 : tau : T;
 
 % u_0 = x.*sin(x).^3; ax = [0 L -6 2];
 u_0 = sin(x); ax = [0 L -2 2];
-f = @(u) -u.^2/2;
+f = @(u) u.^2/2;
 % figure(1)
 % plot(x, u_0)
 
