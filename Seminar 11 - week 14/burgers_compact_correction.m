@@ -1,4 +1,4 @@
-function vareps = compact_correction(u, u_ex, D, h, tau)
+function vareps = burgers_compact_correction(u, u_ex, D, h, tau)
 nu = D*tau/h^2;
 
 a1 = -2/3 + 2*nu; b1 = -8/3 - 4*nu; c1 = -2/3 + 2*nu;
