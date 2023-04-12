@@ -1,7 +1,6 @@
 %% Main parameters
 c = 1;
 L = 2*pi;
-% L = 1;
 T = .5;
 nu = .5; % nu = c*tau/h^2;
 Nx_set = [25 50 100 200];
@@ -18,8 +17,6 @@ scheme = 'compact';
 % scheme = 'explicit';
 % comp_correction = false;
 comp_correction = true;
-smoothing = false;
-% smoothing = true;
 
 anim = true;
 % anim = false;
@@ -52,15 +49,6 @@ for k = 2 : Nt
         comp_eps = zeros(length(u), 1);
     end
     u_k = u_ex + comp_eps.';
-
-    % Smoothing
-    if smoothing
-        % Jump/internal smoothing 10^parameter
-        u_s = eh_smoothing(u_k, 2.5, -2.3);
-        U(k, :) = u_s;
-    else
-        U(k, :) = u_k;
-    end
 end
 U = [U, U(:, 1)];
 
