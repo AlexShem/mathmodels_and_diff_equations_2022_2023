@@ -1,4 +1,4 @@
-function [U, Nt, T, x, h, t] = B_integration(L, T, D, Nx, tau, nu, u_0, scheme)
+function [U, Nt, T, x, h, t] = integration(L, T, D, Nx, tau, nu, u_0, scheme)
 %% Secondary paramters
 x = linspace(0, L, Nx + 1);
 h = x(2) - x(1);

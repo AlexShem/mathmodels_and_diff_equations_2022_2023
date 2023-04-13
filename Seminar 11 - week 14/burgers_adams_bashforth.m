@@ -1,4 +1,4 @@
-function u_new = adams_bashforth(u, D, tau, h)
+function u_new = burgers_adams_bashforth(u, D, tau, h)
     nu = D*tau/h^2;
     u_jm = circshift(u, 1);
     u_jp = circshift(u, -1);
