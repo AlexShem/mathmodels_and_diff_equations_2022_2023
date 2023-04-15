@@ -49,6 +49,7 @@ for k = 2 : Nt
         comp_eps = zeros(length(u), 1);
     end
     u_k = u_ex + comp_eps.';
+    U(k, :) = u_k;
 end
 U = [U, U(:, 1)];
 
