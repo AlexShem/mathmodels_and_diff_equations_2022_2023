@@ -49,7 +49,6 @@ for n = 1:length(Nx_set)
     if show_vis
         % Visualisation
         figure(1)
-        % contour(x, y, u, 'ShowText', 'on');
         surf(x, y, u);
         xl = xlabel('$x$'); xl.Interpreter = 'latex'; xl.FontSize = 16;
         yl = ylabel('$y$'); yl.Interpreter = 'latex'; yl.FontSize = 16;
@@ -57,7 +56,6 @@ for n = 1:length(Nx_set)
         % Visualisation 2
         figure(2)
         contour(x, y, log10(abs(u - u_true_val)), 'ShowText', 'on');
-        % contour(x, y, log10(abs(u - u_true_val)), 18, 'ShowText', 'on');
         xl = xlabel('$x$'); xl.Interpreter = 'latex'; xl.FontSize = 16;
         yl = ylabel('$y$'); yl.Interpreter = 'latex'; yl.FontSize = 16;
         ttl = title(['$\log_{10} |u - u^*|$']); ttl.Interpreter = 'latex'; ttl.FontSize = 16;
