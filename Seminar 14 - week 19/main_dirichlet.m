@@ -4,22 +4,23 @@ scheme = 'compact'; params.r = 0;
 % scheme = 'standard';
 
 L = 2*pi;
+Nx_set = 2.^(3:7);
+C_norm = nan(length(Nx_set), 1);
+
 show_vis = false;
 
 %% Right-hand side
 syms xs ys
 Lu = @(u) diff(u, xs, 2) + diff(u, ys, 2);
 
-% u_sym = sin(xs)*sin(ys);
-u_sym = sin(xs)*(-(ys - sym(pi))^2 + sym(pi)^2);
+u_sym = sin(xs)*sin(ys);
+% u_sym = sin(xs)*;
+% u_sym = sin(xs)*(-(ys - sym(pi))^2 + sym(pi)^2);
 
 f_sym = Lu(u_sym);
 u_true = matlabFunction(simplify(u_sym), 'Vars', [xs, ys]);
 f = matlabFunction(simplify(f_sym), 'Vars', [xs, ys]);
 clear xs ys u_sym f_sym
-
-Nx_set = floor(logspace(1, 2.3, 5));
-C_norm = nan(length(Nx_set), 1);
 
 %% Integration
 for n = 1:length(Nx_set)
