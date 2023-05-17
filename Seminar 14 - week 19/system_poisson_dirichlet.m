@@ -1,6 +1,5 @@
 function u = system_poisson_dirichlet(scheme, params, f)
-hx = params.hx;
-% hy = params.hy;
+h = params.h;
 N = numel(params.x);
 Nx = params.Nx;
 Ny = params.Ny;
@@ -9,7 +8,7 @@ if strcmp(scheme, 'standard')
     a = 1;
     b = 0;
     c = -4;
-    p = hx^2;
+    p = h^2;
     q = 0;
     r = 0;
 elseif strcmp(scheme, 'compact')
@@ -17,8 +16,8 @@ elseif strcmp(scheme, 'compact')
     b = -1/20;
     c = 1;
     r = params.r;
-    p = -hx^2/5 + 4*r;
-    q = -hx^2/40 - 2*r;
+    p = -h^2/5 + 4*r;
+    q = -h^2/40 - 2*r;
 else
     error(['Scheme "', scheme, '" is not supported yet.']);
 end
