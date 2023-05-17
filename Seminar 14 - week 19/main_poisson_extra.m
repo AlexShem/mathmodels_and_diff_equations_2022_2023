@@ -15,7 +15,7 @@ y = linspace(0, L, Ny);
 [x, y] = meshgrid(x, y);
 
 T = 1;
-Nt = 1000;
+Nt = 10000;
 tau = T/(Nt - 1);
 u0 = zeros(size(x));
 
@@ -44,9 +44,9 @@ clear xs ys u_sym f_sym
 tol = 1e-3;
 % rng(1);
 
-u = system_poisson_dirichlet(scheme, params, f);
+% u = system_poisson_dirichlet(scheme, params, f);
 % u = integrate_system_poisson_dirichlet(scheme, params, u0, f);
-% [u, Ni] = seidel_system_poisson_dirichlet(scheme, params, u0, f, tol, 1);
+[u, Ni] = seidel_system_poisson_dirichlet(scheme, params, u0, f, tol, 1);
 
 %% Visualisation
 figure(1)
