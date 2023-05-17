@@ -41,7 +41,7 @@ for n = 1:length(Nx_set)
     params.Ny = Ny;
 
     % Integration
-    u = system_poisson_dirichlet(scheme, params, f);
+    u = system_poisson_cylinder(scheme, params, f);
 
     u_true_val = u_true(x, y);
     C_norm(n) = max(abs(u - u_true_val), [], "all");
