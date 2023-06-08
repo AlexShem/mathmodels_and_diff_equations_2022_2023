@@ -44,4 +44,5 @@ path = path(:, 1 : niter + 1);
 function grad = grad_f(x, f)
 d = length(x);
 h = 1e-8;
-grad = arrayfun(@(ind) (f(x + h*((1:d).' == ind)) - f(x))/h, (1:d).');
+% grad = arrayfun(@(ind) (f(x + h*((1:d).' == ind)) - f(x))/h, (1:d).');
+grad = arrayfun(@(ind) (f(x + h*((1:d).' == ind)) - f(x - h*((1:d).' == ind)))/(2*h), (1:d).');
