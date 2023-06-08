@@ -10,7 +10,7 @@ end
 % omega = .1;
 % phip = 1.8;
 % phig = 2.5;
-omega = .5;
+omega = 0.5;
 phip = 1.2;
 phig = .9;
 
