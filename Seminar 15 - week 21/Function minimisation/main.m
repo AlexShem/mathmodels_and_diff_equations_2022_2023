@@ -15,8 +15,8 @@ xlabel('x');
 ylabel('y')
 
 %% Gradient descent
-x0 = [1.5; 1.5];
-% x0 = [0; 0];
+% x0 = [1.5; 1.5];
+x0 = [0; 0.5];
 [xmin_g, fmin_g, niter_g, path_g] = grad_descent(x0, fx, [], 1000);
 
 figure(1)
