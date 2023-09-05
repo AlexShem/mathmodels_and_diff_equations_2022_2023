@@ -5,8 +5,8 @@ uA = 0; % Left border value
 uB = 0; % Right border value
 L = 2*pi;
 
-theta = @(x) ones(size(x));
-% theta = @(x) exp(1.1*x);
+% theta = @(x) ones(size(x));
+theta = @(x) exp(1*x);
 f = @(x) sin(x);
 u_c = @(x) uA + (uB - uA)/L.*x - sin(x); % Constants for theta == 1
 

@@ -15,8 +15,8 @@ xlabel('x');
 ylabel('y')
 
 %% Gradient descent
-% x0 = [1.5; 1.5];
-x0 = [0; 0.5];
+x0 = [1.5; 1.5];
+% x0 = [0; 0.5];
 [xmin_g, fmin_g, niter_g, path_g] = grad_descent(x0, fx, [], 1000);
 
 figure(1)
@@ -43,4 +43,4 @@ figure(3)
 fsurf(f, [lb(1) ub(1) lb(2) ub(2)], 'ShowContours', 'on', 'FaceAlpha', .3)
 
 % rng(2);
-[xmin_s, fmin_s] = particle_swarm(fx, f, lb, ub, 50, 50);
+[xmin_s, fmin_s] = particle_swarm(fx, f, lb, ub, 20, 50);

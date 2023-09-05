@@ -10,9 +10,9 @@ end
 % omega = .1;
 % phip = 1.8;
 % phig = 2.5;
-omega = 0.5;
+omega = 0.4;
 phip = 1.2;
-phig = .9;
+phig = 0.9;
 
 d = length(lb); % Number of dimensions
 
